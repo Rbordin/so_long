@@ -6,7 +6,7 @@
 #    By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 14:10:36 by rbordin           #+#    #+#              #
-#    Updated: 2023/03/04 10:48:26 by riccardobor      ###   ########.fr        #
+#    Updated: 2023/03/04 16:34:33 by riccardobor      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ SOURCES = so_long.c	\
 		libft/ft_substr.c \
 		libft/libft.h \
 		map.c \
+		game.c \
+		get_sprites.c \
+		movement.c \
 		
 
 OBJECTS = ${SOURCES:.c=.o}
