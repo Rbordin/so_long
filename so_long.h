@@ -6,7 +6,7 @@
 /*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:51:48 by rbordin           #+#    #+#             */
-/*   Updated: 2023/03/04 15:12:43 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/04 16:53:06 by riccardobor      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ typedef struct	s_vars {
 	void	*food;
 	int		collectable;
 	void	*exit[3];
-	void	*enemy[2];
+	void	*death;
+	void	*enemy[3];
 	void	*player;
 	int		player_x;
 	int		player_y;
@@ -59,7 +60,8 @@ typedef struct	s_vars {
 int			xclose();
 int			key_close(int keycode, t_vars *vars);
 int 		ft_count(char *s1);
-int			main(void);
+int			main(int argc, char **argv)
+int			control_format(char	*argv);
 
 //get_next_line
 char		*get_next_line(int fd);
@@ -70,7 +72,8 @@ char		*place_holder(int fd, char *mem);
 char		*ft_finder(char *mem);
 
 //funzionalità del gioco: game.c
-t_vars start(t_vars *vars);
+t_vars 		start(t_vars *vars, char *argv);
+
 
 //controllo mappa: control.c
 int 		ft_control(t_vars *vars);
@@ -91,7 +94,7 @@ int			get_background_and_walls(t_vars *vars);
 int 		get_sprites(t_vars *vars);
 int			get_player(t_vars *vars);
 int			get_food_and_enemies(t_vars *vars);
-int			get_exit(t_vars *vars);
+int			get_exit_and_death(t_vars *vars);
 
 //movimenti: movement.c
 int			move(int keycode, t_vars *vars);

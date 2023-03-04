@@ -6,7 +6,7 @@
 /*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 11:44:31 by riccardobor       #+#    #+#             */
-/*   Updated: 2023/03/04 15:11:35 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/04 16:53:17 by riccardobor      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	get_background_and_walls(t_vars *vars)
     vars->wall = mlx_xpm_file_to_image(vars->mlx, "sprites/Penguins_game_sprite/wall/icewall.xpm", &x, &y);
 	if (!vars->wall)
 		return (0);
-	printf("5 test\n");
 	return (1);
 }
 
@@ -68,7 +67,7 @@ int	get_food_and_enemies(t_vars *vars)
 	return(1);	
 }
 
-int	get_exit(t_vars *vars)
+int	get_exit_and_death(t_vars *vars)
 {
 	int	x;
 	int	y;
@@ -77,7 +76,8 @@ int	get_exit(t_vars *vars)
 	y = 64;
 	vars->exit[0] = mlx_xpm_file_to_image(vars->mlx, "sprites/Penguins_game_sprite/exit/final_exitblock.xpm", &x, &y);
 	vars->exit[1] = mlx_xpm_file_to_image(vars->mlx, "sprites/Penguins_game_sprite/exit/ice_exit.xpm", &x, &y);
-	if (!vars->exit[0] || !vars->exit[1])
+	vars->death = mlx_xpm_file_to_image(vars->mlx, xlm_da_creare, &x, &y);
+	if (!vars->exit[0] || !vars->exit[1] || !vars->death)
 		return (0);
 	return (1);
 }
@@ -90,7 +90,7 @@ int get_sprites(t_vars *vars)
 	i += get_background_and_walls(vars);
 	i += get_player(vars);
 	i += get_food_and_enemies(vars);
-	i += get_exit(vars);
+	i += get_exit_and_death(vars);
 	return (i);
 	
 }
