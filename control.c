@@ -6,7 +6,7 @@
 /*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:51:29 by riccardobor       #+#    #+#             */
-/*   Updated: 2023/03/04 13:37:40 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/04 16:25:51 by riccardobor      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int checking_middles(t_vars *vars)
 {
     while (vars->i-- > 0)
     {
-        printf("while\n");
         if ((vars->map[vars->i][0] != '1') && (vars->map[vars->i][ft_strlen(vars->map[vars->i])] != '1'))
             return (0);
     }
