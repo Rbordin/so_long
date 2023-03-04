@@ -6,7 +6,7 @@
 /*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 11:44:31 by riccardobor       #+#    #+#             */
-/*   Updated: 2023/03/04 16:53:17 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/04 17:03:37 by riccardobor      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	get_exit_and_death(t_vars *vars)
 	y = 64;
 	vars->exit[0] = mlx_xpm_file_to_image(vars->mlx, "sprites/Penguins_game_sprite/exit/final_exitblock.xpm", &x, &y);
 	vars->exit[1] = mlx_xpm_file_to_image(vars->mlx, "sprites/Penguins_game_sprite/exit/ice_exit.xpm", &x, &y);
-	vars->death = mlx_xpm_file_to_image(vars->mlx, xlm_da_creare, &x, &y);
+	vars->death = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/skull/final_skull.xpm", &x, &y);
 	if (!vars->exit[0] || !vars->exit[1] || !vars->death)
 		return (0);
 	return (1);
