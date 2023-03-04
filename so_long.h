@@ -6,7 +6,7 @@
 /*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:51:48 by rbordin           #+#    #+#             */
-/*   Updated: 2023/03/04 16:53:06 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/04 16:58:30 by riccardobor      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char		*ft_finder(char *mem);
 
 //funzionalità del gioco: game.c
 t_vars 		start(t_vars *vars, char *argv);
-
+void		death(t_vars *vars, int y, int x);
 
 //controllo mappa: control.c
 int 		ft_control(t_vars *vars);
