@@ -6,13 +6,14 @@
 /*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 16:06:33 by rbordin           #+#    #+#             */
-/*   Updated: 2023/03/04 16:02:03 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/05 11:25:25 by riccardobor      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "so_long.h"
 
+// 5 FUNZIONI: main, controllo del formatoo e hook
 int	xclose()
 {
 	exit(0);
@@ -54,11 +55,10 @@ int	control_format(char	*argv)
 	i = 0;
 	if (!argv)
 		return (0);
-	while (argv[i++] != '.')
-	{
-		if (argv[i + 1] != 'b' || argv[i + 2] != 'e' || argv[i + 3] != 'r' || argv[i + 4] != '\0')
-			return (0);
-	}
+	while (argv[i] != '.')
+		i++;
+	if (argv[i + 1] != 'b' || argv[i + 2] != 'e' || argv[i + 3] != 'r' || argv[i + 4] != '\0')
+		return (0);
 	return (1);
 }
 
@@ -79,7 +79,8 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		
+		ft_putstr("Error:\nsomething looks wrong, please try again!");
+		exit (1);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 11:44:31 by riccardobor       #+#    #+#             */
-/*   Updated: 2023/03/04 17:03:37 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/05 13:59:52 by riccardobor      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	get_food_and_enemies(t_vars *vars)
 	vars->enemy[1] = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/dog_attack/dog_attack2.xpm", &x, &y);
 	vars->enemy[2] = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/dog_attack/dog_attack3.xpm", &x, &y);
 	vars->enemy[3] = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/dog_attack/dog_attack4.xpm", &x, &y);
+		return (0);
 	return(1);	
 }
 
@@ -91,6 +92,11 @@ int get_sprites(t_vars *vars)
 	i += get_player(vars);
 	i += get_food_and_enemies(vars);
 	i += get_exit_and_death(vars);
+	if (i != 4)
+	{
+		ft_putstr("Error:\nit seems something went wrong. Please try again!");
+		exit (1);
+	}
 	return (i);
 	
 }

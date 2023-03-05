@@ -6,7 +6,7 @@
 /*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:54:52 by riccardobor       #+#    #+#             */
-/*   Updated: 2023/03/04 15:00:25 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/05 13:39:06 by riccardobor      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	draw_p_and_x(t_vars *vars, int y, int x)
 	if (vars->map[y][x] == 'X')
 	{
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->background, x * 64, y * 64 + 64);
-		mlx_put_image_to_window(vars->mlx, vars->win, vars->enemy[0], x * 64, y * 64 + 64);
+		enemy_attack(vars, y, x);
 	}
 }
 

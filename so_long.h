@@ -6,7 +6,7 @@
 /*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:51:48 by rbordin           #+#    #+#             */
-/*   Updated: 2023/03/04 16:58:30 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/05 13:38:50 by riccardobor      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,13 @@ typedef struct	s_vars {
 	int		collectable;
 	void	*exit[3];
 	void	*death;
-	void	*enemy[3];
+	void	*enemy[4];
+	int		enemy_stage;
+	int		enemy_loop;
 	void	*player;
 	int		player_x;
 	int		player_y;
+	int		player_loop;
 	void	*go_up[3];
 	void	*go_down[3];
 	void	*go_left[3];
@@ -60,7 +63,7 @@ typedef struct	s_vars {
 int			xclose();
 int			key_close(int keycode, t_vars *vars);
 int 		ft_count(char *s1);
-int			main(int argc, char **argv)
+int			main(int argc, char **argv);
 int			control_format(char	*argv);
 
 //get_next_line
@@ -74,6 +77,8 @@ char		*ft_finder(char *mem);
 //funzionalità del gioco: game.c
 t_vars 		start(t_vars *vars, char *argv);
 void		death(t_vars *vars, int y, int x);
+void		ft_putstr(char *s1);
+int			enemy_attack(t_vars *vars, int x, int y);
 
 //controllo mappa: control.c
 int 		ft_control(t_vars *vars);
@@ -103,6 +108,12 @@ void		move_d(t_vars *vars);
 void		move_a(t_vars *vars);
 void		move_s(t_vars *vars);
 
+//player loops: player_loops.c
+int 		player_loops(t_vars *vars, int keycode);
+int 		player_doops(t_vars *vars);
+int			player_aoops(t_vars *vars);
+int			player_soops(t_vars *vars);
+int			player_woops(t_vars *vars);
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 12
 # endif
