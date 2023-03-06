@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
+/*   By: rbordin <rbordin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:54:52 by riccardobor       #+#    #+#             */
-/*   Updated: 2023/03/05 13:39:06 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/06 16:53:52 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 void	draw_map(t_vars *vars)
 {
+	printf("map1");
 	int		x;
 	int		y;
 
@@ -81,7 +82,7 @@ void	draw_e_and_c(t_vars *vars, int y, int x)
 
 void    free_exit(t_vars *vars, int y, int x)
 {
-        mlx_clear_window(vars->mlx, vars->win);
-        mlx_put_image_to_window(vars->mlx, vars->win, vars->exit[2], x * 64, y * 64 + 64);
+        mlx_destroy_image(vars->mlx, vars->exit[1]);
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->exit[2], x * 64, y * 64 + 64);
         draw_map(vars);
 }

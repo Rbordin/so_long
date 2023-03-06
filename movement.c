@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
+/*   By: rbordin <rbordin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:56:40 by riccardobor       #+#    #+#             */
-/*   Updated: 2023/03/05 12:15:19 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/06 11:05:44 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,38 +82,42 @@ int move(int keycode, t_vars *vars)
 {
     if (keycode == 13 || keycode == 126)
     {
-        while (vars->map[vars->player_y--][vars->player_x] != '1')
+        while (vars->map[vars->player_y - 1][vars->player_x] != '1')
         {
             printf("up\n");
             move_w(vars);
             player_loops(vars, keycode);
+            vars->player_y--;
         }
     }
     if (keycode == 1 || keycode == 125)
     {
-        while (vars->map[vars->player_y++][vars->player_x] != '1')
+        while (vars->map[vars->player_y + 1][vars->player_x] != '1')
         {
             printf("down\n");
             move_s(vars);
             player_loops(vars, keycode);
+            vars->player_y++;
         }
     }    
     if (keycode == 0 || keycode == 123)
     {
-        while (vars->map[vars->player_y][vars->player_x--] != '1')
+        while (vars->map[vars->player_y][vars->player_x - 1] != '1')
         {
             printf("sx\n");
             move_a(vars);
             player_loops(vars, keycode);
+            vars->player_x--;
         }
     }
     if (keycode == 2 || keycode == 124)
     {
-        while (vars->map[vars->player_y][vars->player_x++] != '1')
+        while (vars->map[vars->player_y][vars->player_x + 1] != '1')
         {
             printf("dx\n");
             move_d(vars);
             player_loops(vars, keycode);
+            vars->player_x++;
         }
     }
     return (1);

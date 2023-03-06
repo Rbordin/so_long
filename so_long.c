@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
+/*   By: rbordin <rbordin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 16:06:33 by rbordin           #+#    #+#             */
-/*   Updated: 2023/03/05 11:25:25 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/06 16:49:53 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "so_long.h"
 
-// 5 FUNZIONI: main, controllo del formatoo e hook
+// 5 FUNZIONI: main, controllo del formato e hook
 int	xclose()
 {
 	exit(0);
@@ -68,19 +68,26 @@ int	main(int argc, char **argv)
 	
 	if (argc == 2)
 	{
+		printf("ciao1\n");
 		start(&vars, argv[1]);
     	if (ft_control(&vars) == 0)
        		return(0);
+		printf("control is ok\n");
+		
+		get_sprites(&vars);
+		printf("ciao8\n");
+		
+		draw_map(&vars);
+		printf("ciao9\n");
+		
 		mlx_hook(vars.win, 2, 1L<<0, key_close, &vars);
 		mlx_hook(vars.win, 17, 0, xclose, &vars);
-		get_sprites(&vars);
-		draw_map(&vars);
 		mlx_loop(vars.mlx);
 	}
 	else
 	{
 		ft_putstr("Error:\nsomething looks wrong, please try again!");
-		exit (1);
+		exit(1);
 	}
 }
 
