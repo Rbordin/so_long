@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
+/*   By: rbordin <rbordin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 13:43:36 by riccardobor       #+#    #+#             */
-/*   Updated: 2023/03/05 13:38:03 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/07 12:48:39 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,26 @@ void    death(t_vars *vars, int y, int x)
 t_vars start(t_vars *vars, char *argv)
 {
     vars->mlx = mlx_init();
+	printf("ciao2\n");
 	vars->player_x = 0;
 	vars->player_y = 0;
 	vars->player_loop = 0;
 	vars->enemy_loop = 0;
 	vars->enemy_stage = 0;
 	vars->s1 = "";
-	if (control_format(argv) == 0)
+	if (control_format(argv) == 1)
 	{
 		ft_putstr("error\nplease give me an actual map");
 		exit (1);
 	}
+	printf("ciao3\n");
 	vars->fd = open(argv, O_RDONLY);
 	if (vars->fd < 0)
 	{
 		ft_putstr("error\nsomething went wrong");
 		exit (1);
 	}
+	printf("ciao4\n");
 	vars->pd = get_next_line(vars->fd);
 	while (vars->pd != NULL)
 	{
@@ -50,10 +53,16 @@ t_vars start(t_vars *vars, char *argv)
 	}
 	free(vars->pd);
     vars->map = ft_split(vars->s1, '\n');
+	printf("%s", vars->s1);
 	vars->i = ft_count(vars->s1);
+	
+	printf("i = %d\n", vars->i);
     vars->height = vars->i * 64 ;
 	vars->width = ft_strlen(vars->map[0]) * 64;
+	printf("width = %d\n", vars->width / 64);
 	vars->win = mlx_new_window(vars->mlx, vars->width, vars->height + 64, "so_long");
+	printf("ciao6\n");
+	
     return (*vars);
 }
 

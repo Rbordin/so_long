@@ -6,7 +6,7 @@
 /*   By: rbordin <rbordin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 11:44:31 by riccardobor       #+#    #+#             */
-/*   Updated: 2023/03/06 16:51:32 by rbordin          ###   ########.fr       */
+/*   Updated: 2023/03/07 15:48:39 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	get_background_and_walls(t_vars *vars)
 	int	x = 64;
 	int	y = 64;
 	
-	vars->background = mlx_xpm_file_to_image(vars->mlx, "icleblock.xpm", &x, &y);
+	vars->background = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/ice_block/ice_sprite.xpm", &x, &y);
 	if (!vars->background)
 		return(0);
     vars->wall = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/wall/icewall.xpm", &x, &y);
@@ -44,9 +44,9 @@ int	get_player(t_vars *vars)
 	vars->go_right[0] = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/penguin_right/file da convertire/final_stand_right.xpm", &x, &y);
 	vars->go_right[1] = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/penguin_right/file da convertire/final_bend_right.xpm", &x, &y);
 	vars->go_right[2] = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/penguin_right/file da convertire/final_slide_right.xpm", &x, &y);
-	vars->go_up[0] = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/penguin_up/file da convertire/final_stand_up.xpm", &x, &y);
-	vars->go_up[1] = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/penguin_up/file da convertire/final_bend_up.xpm", &x, &y);
-	vars->go_up[2] = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/penguin_up/file da convertire/final_slide_up.xpm", &x, &y);
+	vars->go_up[0] = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/penguin_up/file da convertire/final_stand_up.xpm", &vars->x, &vars->y);
+	vars->go_up[1] = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/penguin_up/file da convertire/final_bend_up.xpm", &vars->x, &vars->y);
+	vars->go_up[2] = mlx_xpm_file_to_image(vars->mlx, "Penguins_game_sprite/penguin_up/file da convertire/final_slide_up.xpm", &vars->x, &vars->y);
 	printf("go_down: %p\n", &vars->go_down[0]);
 	printf("go_down: %p\n", &vars->go_down[1]);
 	printf("go_down: %p\n", &vars->go_down[2]);
@@ -113,7 +113,7 @@ int	get_exit_and_death(t_vars *vars)
 	return (1);
 }
 
-int get_sprites(t_vars *vars)
+void	get_sprites(t_vars *vars)
 {
 	int	i;
 	printf("SPRITE\n");
@@ -135,6 +135,4 @@ int get_sprites(t_vars *vars)
 		ft_putstr("Error:\nit seems something went wrong. Please try again!");
 		exit (1);
 	}
-	return (i);
-	
 }

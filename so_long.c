@@ -6,7 +6,7 @@
 /*   By: rbordin <rbordin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 16:06:33 by rbordin           #+#    #+#             */
-/*   Updated: 2023/03/06 16:49:53 by rbordin          ###   ########.fr       */
+/*   Updated: 2023/03/07 11:06:45 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ int	control_format(char	*argv)
 		return (0);
 	while (argv[i] != '.')
 		i++;
-	if (argv[i + 1] != 'b' || argv[i + 2] != 'e' || argv[i + 3] != 'r' || argv[i + 4] != '\0')
-		return (0);
-	return (1);
+	if (argv[i + 1] != 'b' && argv[i + 2] != 'e' && argv[i + 3] != 'r' && argv[i + 4] != '\0')
+		return (1);
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -76,8 +76,9 @@ int	main(int argc, char **argv)
 		
 		get_sprites(&vars);
 		printf("ciao8\n");
-		
+		printf("%p\n", &vars);
 		draw_map(&vars);
+		printf("%p\n", &vars);
 		printf("ciao9\n");
 		
 		mlx_hook(vars.win, 2, 1L<<0, key_close, &vars);

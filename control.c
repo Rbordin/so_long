@@ -6,7 +6,7 @@
 /*   By: rbordin <rbordin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:51:29 by riccardobor       #+#    #+#             */
-/*   Updated: 2023/03/06 14:35:53 by rbordin          ###   ########.fr       */
+/*   Updated: 2023/03/07 12:12:15 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,10 @@ int checking_elements(t_vars *vars)
     player = 0;
     food = 0;
     exit = 0;
+    printf("checking elemnts\n");
     while (vars->s1[i])
     {
-        printf("s1 = %s", vars->s1);
+       // printf("s1 = %s", vars->s1);
         if (vars->s1[i] == 'P')
             player += 1;
         else if (vars->s1[i] == 'C')

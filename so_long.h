@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
+/*   By: rbordin <rbordin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:51:48 by rbordin           #+#    #+#             */
-/*   Updated: 2023/03/05 13:38:50 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/07 16:08:30 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ typedef struct	s_vars {
 	void	*go_down[3];
 	void	*go_left[3];
 	void	*go_right[3];
+	int		x;
+	int		y;
 
 }				t_vars;
 
@@ -89,14 +91,14 @@ int 		checking_elements(t_vars *vars);
 
 //parte grafica 1: map.c
 void		draw_map(t_vars *vars);
-void		draw_1_and_0(t_vars *vars, int y, int x);
-void		draw_p_and_x(t_vars *vars, int y, int x);
-void		draw_e_and_c(t_vars *vars, int y, int x);
-void    	free_exit(t_vars *vars, int y, int x);
+void		draw_1_and_0(t_vars *vars, int x, int y);
+void		draw_p_and_x(t_vars *vars, int x, int y);
+void		draw_e_and_c(t_vars *vars, int x, int y);
+void    	free_exit(t_vars *vars, int x, int y);
 
 //parte grafica 2: get_sprites.c
 int			get_background_and_walls(t_vars *vars);
-int 		get_sprites(t_vars *vars);
+void 		get_sprites(t_vars *vars);
 int			get_player(t_vars *vars);
 int			get_food_and_enemies(t_vars *vars);
 int			get_exit_and_death(t_vars *vars);
