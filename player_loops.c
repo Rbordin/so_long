@@ -6,7 +6,7 @@
 /*   By: rbordin <rbordin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 11:40:29 by riccardobor       #+#    #+#             */
-/*   Updated: 2023/03/07 14:36:12 by rbordin          ###   ########.fr       */
+/*   Updated: 2023/03/09 15:08:23 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int player_loops(t_vars *vars, int keycode)
 {
-    if (vars->player_loop < 1000)
+    if (vars->player_loop < 50000)
     {
         vars->player_loop++;
         return (0);
@@ -37,6 +37,7 @@ int player_loops(t_vars *vars, int keycode)
 
 int player_woops(t_vars *vars)
 {
+    
     mlx_destroy_image(vars->mlx, vars->go_up[0]);
     mlx_put_image_to_window(vars->mlx, vars->win, vars->go_up[1], vars->player_y, vars->player_x);
     mlx_destroy_image(vars->mlx, vars->go_up[1]);
