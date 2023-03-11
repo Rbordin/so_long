@@ -6,7 +6,7 @@
 #    By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/22 14:10:36 by rbordin           #+#    #+#              #
-#    Updated: 2023/03/04 17:00:49 by riccardobor      ###   ########.fr        #
+#    Updated: 2023/03/11 15:59:59 by riccardobor      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,11 @@ SOURCES = so_long.c	\
 		libft/ft_strjoin.c \
 		libft/ft_strlen.c \
 		libft/ft_substr.c \
-		libft/libft.h \
 		map.c \
 		game.c \
 		get_sprites.c \
-		movement.c \
+		new_movement.c \
+		player_loops.c \
 		
 
 OBJECTS = ${SOURCES:.c=.o}
@@ -45,7 +45,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 		
 ${NAME}: ${OBJECTS}
-		${CC} ${OBJECTS} -lmlx -framework OpenGl -framework AppKit
+		${CC} ${OBJECTS} -Imlx -lmlx -framework OpenGl -framework AppKit
 
 all: 	${NAME} ${MINILBX}
 

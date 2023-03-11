@@ -6,7 +6,7 @@
 /*   By: riccardobordin <riccardobordin@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 11:58:32 by riccardobor       #+#    #+#             */
-/*   Updated: 2023/03/11 13:27:13 by riccardobor      ###   ########.fr       */
+/*   Updated: 2023/03/11 16:11:22 by riccardobor      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int move(int keycode, t_vars *vars)
 {
     int steps;
     
+    steps = 0;
     if (keycode == 13 || keycode == 126)
     {
         steps += vertical_control(keycode, vars);
@@ -26,6 +27,7 @@ int move(int keycode, t_vars *vars)
             }
         player_loops(vars, keycode);
     }
+    steps = 0;
     if (keycode == 1 || keycode == 125)
     {
         steps += vertical_control(keycode, vars);
@@ -36,6 +38,7 @@ int move(int keycode, t_vars *vars)
             }
         player_loops(vars, keycode);
     }    
+    steps = 0;
     if (keycode == 0 || keycode == 123)
     {
         steps += vertical_control(keycode, vars);
@@ -46,6 +49,7 @@ int move(int keycode, t_vars *vars)
             }
         player_loops(vars, keycode);
     }
+    steps = 0;
     if (keycode == 2 || keycode == 124)
     {
         steps += vertical_control(keycode, vars);
@@ -59,7 +63,7 @@ int move(int keycode, t_vars *vars)
     return (1);
 }
 
-void    move_w(t_vars *vars)
+int    move_w(t_vars *vars)
 {
     if (vars->map[vars->player_y - 1][vars->player_x] == 'X')
         death(vars, vars->player_y, vars->player_x);
@@ -68,9 +72,10 @@ void    move_w(t_vars *vars)
     vars->map[vars->player_y - 1][vars->player_x] = '0';
     vars->map[vars->player_y][vars->player_x] = 'P';
     draw_map(vars);
+    return (0);
 }
 
-void    move_s(t_vars *vars)
+int    move_s(t_vars *vars)
 {
     if (vars->map[vars->player_y + 1][vars->player_x] == 'X')
         death(vars, vars->player_y, vars->player_x);
@@ -79,9 +84,11 @@ void    move_s(t_vars *vars)
     vars->map[vars->player_y + 1][vars->player_x] = '0';
     vars->map[vars->player_y][vars->player_x] = 'P';
     draw_map(vars);
+    return (0);
+
 }
 
-void    move_s(t_vars *vars)
+int    move_a(t_vars *vars)
 {
     if (vars->map[vars->player_y][vars->player_x - 1] == 'X')
         death(vars, vars->player_y, vars->player_x);
@@ -90,9 +97,11 @@ void    move_s(t_vars *vars)
     vars->map[vars->player_y][vars->player_x - 1] = '0';
     vars->map[vars->player_y][vars->player_x] = 'P';
     draw_map(vars);
+    return (0);
+
 }
 
-void    move_d(t_vars *vars)
+int    move_d(t_vars *vars)
 {
     if (vars->map[vars->player_y][vars->player_x + 1] == 'X')
         death(vars, vars->player_y, vars->player_x);
@@ -101,4 +110,6 @@ void    move_d(t_vars *vars)
     vars->map[vars->player_y][vars->player_x + 1] = '0';
     vars->map[vars->player_y][vars->player_x] = 'P';
     draw_map(vars);
+    return (0);
+
 }
