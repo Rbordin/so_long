@@ -6,7 +6,7 @@
 /*   By: rbordin <rbordin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:51:29 by riccardobor       #+#    #+#             */
-/*   Updated: 2023/03/22 09:49:21 by rbordin          ###   ########.fr       */
+/*   Updated: 2023/03/30 17:22:30 by rbordin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ int	checking_edges(t_vars *vars)
 	int	y;
 
 	y = 0;
-	while (vars->map[y])
+	printf("%d", vars->i);
+	while (vars->map[0][y])
 	{
-		if ((vars->map[0][y] != '1') && (vars->map[vars->i][y] != '1'))
+		if ((vars->map[0][y] != '1') || (vars->map[vars->i - 1][y] != '1'))
 			return (0);
+		printf("%dëdges\n", y);
 		y++;
 	}
 	return (1);
@@ -31,10 +33,11 @@ int	checking_middles(t_vars *vars)
 {
 	int	i;
 
-	i = 0;
-	while (i < vars->i - 1)
+	i = 1;
+	while (i < vars->i)
 	{
-		if ((vars->map[i][0] != '1') && (vars->map[i][vars->width / 64] != '1'))
+		printf("middles\n");
+		if ((vars->map[i][0] != '1') || (vars->map[i][ft_strlen(vars->map[i]) - 1] != '1'))
 			return (0);
 		i++;
 	}
